@@ -19,6 +19,11 @@ int main(int argc, char* argv[]) {
     FileController fc {argv[1]};
     deque<string> q = fc.getDirContents();
     for (string &dir_entry : q) {
+      string fisk;
+      if ((fisk = dir_entry) == "ars_notoria") {
+        fc.readWholeTextFile(fisk);
+        break;
+      }
         cout << dir_entry << endl;
     }
     return 0;
