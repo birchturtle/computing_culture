@@ -10,18 +10,15 @@ int main(int argc, char* argv[]) {
         cout << "Please specify path to input file directory" << endl;
         return -1;
     }
-    Concept c { "Det er et Concept" };
-    cout << "Her er det: " << c.Word << endl;
-    Concept c2 {" det er det her på sin vis også "};
-    ConceptController::AddConcept(c);
-    ConceptController::AddConcept(c2);
-    ConceptController::PrintByWord("røv");
+
+    cout << "Checking files at path.." << endl;
+    
     FileController fc {argv[1]};
     deque<string> q = fc.getDirContents();
     for (string &dir_entry : q) {
-      string fisk;
-      if ((fisk = dir_entry) == "ars_notoria") {
-        fc.readWholeTextFile(fisk);
+      string test;
+      if ((test = dir_entry) == "ars_notoria") {
+        fc.readWholeTextFile(test);
         break;
       }
         cout << dir_entry << endl;
